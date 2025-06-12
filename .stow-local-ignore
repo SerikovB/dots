@@ -1,4 +1,6 @@
-\.stowrc
 \.git
 \.gitignore
 \.gitmodules
+\.stowrc
+
+^/packages-list
