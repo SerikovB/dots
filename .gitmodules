@@ -1,0 +1,6 @@
+[submodule "dot-config/zsh/extentions/zsh-bd"]
+	path = dot-config/zsh/extentions/zsh-bd
+	url = https://github.com/Tarrasch/zsh-bd.git
+[submodule "dot-config/zsh/extentions/zsh-completions"]
+	path = dot-config/zsh/extentions/zsh-completions
+	url = git@github.com:zsh-users/zsh-completions.git
