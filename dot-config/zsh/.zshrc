@@ -15,4 +15,5 @@ setopt EXTENDED_GLOB		# extended globbing syntax
 
 source "${ZDOTDIR}/completion.zsh"
 source "${ZDOTDIR}/extentions/zsh-bd/bd.zsh"
+source "${ZDOTDIR}/extentions/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 source "${ZDOTDIR}/keybinds.zsh"

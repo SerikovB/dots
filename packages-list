@@ -1,9 +1,11 @@
 -- From arch repo
 fzf
 git
+man-pages
 neovim
 ripgrep
 zsh
 
 -- From AUR
 paru
+wallust
