@@ -1,6 +1,9 @@
 -- From arch repo
+bat
+fd
 fzf
 git
+handlr-regex
 man-pages
 neovim
 ripgrep
@@ -9,3 +12,4 @@ zsh
 -- From AUR
 paru
 wallust
+wezterm-git

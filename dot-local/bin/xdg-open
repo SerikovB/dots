@@ -1,0 +1,3 @@
+#!/bin/sh
+# To shadow xdg-open
+handlr open "$@"

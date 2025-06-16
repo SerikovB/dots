@@ -7,6 +7,11 @@ export XDG_CACHE_HOME="${HOME}/.cache"
 export XDG_DATA_HOME="${HOME}/.local/share"
 export XDG_STATE_HOME="${HOME}/.local/state"
 
+# Local bin
+if [ -d "${HOME}/.local/bin" ] ; then
+	PATH="${HOME}/.local/bin:${PATH}"
+fi
+
 # Dotfiles
 export DOTFILES="${HOME}/.dotfiles"
 
@@ -20,8 +25,6 @@ export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
 export HISTFILE="${ZDOTDIR}/.zhistory"
 
 # Fzf
-export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 FZF_COLORS="bg+:-1,\
 fg:gray,\
 fg+:white,\
@@ -34,6 +37,8 @@ pointer:red,\
 marker:blue,\
 prompt:gray,\
 hl+:red"
+export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS="--height 60% \
 --border sharp \
 --layout reverse \

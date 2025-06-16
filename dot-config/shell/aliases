@@ -1,0 +1,31 @@
+#!/bin/sh
+
+# Edit text
+alias e='$EDITOR'
+alias fe='$EDITOR $(fzf)'
+
+# Interactive verbose commands
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias rm='rm -iv'
+
+# List directory contents
+alias ls='ls --color=auto --group-directories-first'
+alias la='ls -a'
+alias ll='ls -lAhsF'
+alias lt='ls -lAhsFtr'
+alias lss='ls -lAhsFSr'
+
+# Cat command
+alias fcat='cat $(fzf)'
+alias fbat='bat --paging=never $(fzf)'
+
+# Git command
+alias ga='git add'
+alias gc='git commit'
+alias gl='git log --oneline'
+alias gp='git push'
+alias gpo='git push origin'
+alias gr='git remote'
+alias gs='git status'
+alias gss='git status -s'
