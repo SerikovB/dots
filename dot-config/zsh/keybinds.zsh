@@ -1,5 +1,9 @@
 #!/usr/bin/env zsh
 
+# Vi keys
+bindkey -v
+export KEYTIMEOUT=1
+
 # Bind vim keys to navigate in menu
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history

@@ -29,3 +29,6 @@ alias gpo='git push origin'
 alias gr='git remote'
 alias gs='git status'
 alias gss='git status -s'
+
+# Sudo command
+alias sudo='doas'
