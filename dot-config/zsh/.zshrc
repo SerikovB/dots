@@ -35,4 +35,4 @@ source "${ZDOTDIR}/extentions/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 source "${ZDOTDIR}/keybinds.zsh"
 
 # Sequences for terminal colors
-cat "${XDG_CACHE_HOME}/wallust/sequences"
+# cat "${XDG_CACHE_HOME}/wallust/sequences"

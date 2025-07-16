@@ -42,5 +42,6 @@ saturation = 45
 # NOTE: prefer '' over "" for paths, avoids escaping.
 # template: A RELATIVE path that points to `~/.config/wallust/template` (depends on platform)
 # target: ABSOLUTE path in which to place a file with generated templated values.
+wezterm = { template = 'wezterm.toml', target = '~/.config/wezterm/assets/colors/Auto.toml' }
 # ¡ If either one is a directory, then both SHOULD be one. !
 # zathura = { template = 'zathura', target = '~/.config/zathura/zathurarc' }
