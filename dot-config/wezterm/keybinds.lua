@@ -77,6 +77,14 @@ kb.keys = {
   	},
 }
 
+for i = 1, 9 do
+	table.insert(kb.keys, {
+		key = tostring(i),
+		mods = 'ALT',
+		action = wt.action.ActivateTab(i - 1),
+	})
+end
+
 function kb.apply(cfg)
 	cfg.leader = kb.leader
 	cfg.keys = kb.keys
