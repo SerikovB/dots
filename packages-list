@@ -11,5 +11,6 @@ zsh
 
 -- From AUR
 paru
+quickshell
 wallust
 wezterm-git

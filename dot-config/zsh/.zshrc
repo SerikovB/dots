@@ -34,5 +34,7 @@ source "${ZDOTDIR}/extentions/zsh-bd/bd.zsh"
 source "${ZDOTDIR}/extentions/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 source "${ZDOTDIR}/keybinds.zsh"
 
+eval "$(starship init zsh)"
+
 # Sequences for terminal colors
 # cat "${XDG_CACHE_HOME}/wallust/sequences"
