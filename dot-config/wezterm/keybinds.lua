@@ -46,23 +46,23 @@ kb.keys = {
 		action = wt.action.ActivatePaneDirection 'Down',
 	},
 	{
-		key = 'H',
-		mods = 'ALT',
+		key = 'h',
+		mods = 'ALT|CTRL',
 		action = wt.action.AdjustPaneSize { 'Left', 5 },
 	},
 	{
-		key = 'L',
-		mods = 'ALT',
+		key = 'l',
+		mods = 'ALT|CTRL',
 		action = wt.action.AdjustPaneSize { 'Right', 5 }, 
 	},
 	{
-		key = 'K',
-		mods = 'ALT',
+		key = 'k',
+		mods = 'ALT|CTRL',
 		action = wt.action.AdjustPaneSize { 'Up', 5 },
 	},
 	{
-		key = 'J',
-		mods = 'ALT',
+		key = 'j',
+		mods = 'ALT|CTRL',
 		action = wt.action.AdjustPaneSize { 'Down', 5 },
 	},
 	{

@@ -1,0 +1,32 @@
+output "Chimei Innolux Corporation 0x161A Unknown" {
+	mode 1920x1080@144.00301
+	position 0,0
+	scale 1
+	alias $INTERNAL
+}
+
+output "Lenovo Group Limited LEN-A390-A-A 0x00000001" {
+	mode 1920x1080@100.00
+	scale 1
+	alias $EXT_1
+}
+
+profile extend {
+	output $INTERNAL enable
+	output $EXT_1 enable position -1921,0
+}
+
+profile external {
+	output $INTERNAL disable
+	output $EXT_1 enable position 0,0
+}
+
+profile internal {
+	output $INTERNAL enable
+	output $EXT_1 disable
+}
+
+profile mirror {
+	output $INTERNAL enable
+	output $EXT_1 enable
+}
