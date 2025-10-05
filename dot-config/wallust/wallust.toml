@@ -7,3 +7,4 @@ saturation = 70
 
 [templates]
 wezterm = { template = 'wezterm.toml', target = '~/.config/wezterm/assets/colors/Auto.toml' }
+neovim = { template = 'nvim.json', target = '~/.config/nvim/colors.json' }

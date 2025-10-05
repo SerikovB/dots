@@ -1,9 +1,0 @@
-alpha = 80
-backend = "fastresize"
-check_contrast = true
-color_space = "lab"
-palette = "softlight"
-saturation = 70
-
-[templates]
-wezterm = { template = 'wezterm.toml', target = '~/.config/wezterm/assets/colors/Auto.toml' }
