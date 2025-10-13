@@ -2,19 +2,18 @@ local M = {}
 local map = vim.keymap.set
 
 M.on_attach = function(_, bufnr)
-	local function opts(desc)
+  local function opts(desc)
     return { buffer = bufnr, desc = "LSP " .. desc }
   end
 
-	map("n", "gD", vim.lsp.buf.declaration, opts "Go to declaration")
+  map("n", "gD", vim.lsp.buf.declaration, opts "Go to declaration")
   map("n", "gd", vim.lsp.buf.definition, opts "Go to definition")
-	map("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts "Add workspace folder")
+  map("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts "Add workspace folder")
   map("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts "Remove workspace folder")
-	map("n", "<leader>wl", function()
+  map("n", "<leader>wl", function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, opts "List workspace folders")
-	map("n", "<leader>D", vim.lsp.buf.type_definition, opts "Go to type definition")
-
+  map("n", "<leader>D", vim.lsp.buf.type_definition, opts "Go to type definition")
 end
 
 M.on_init = function(client, _)
@@ -31,7 +30,7 @@ end
 
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
 M.capabilities.textDocument.completion.completionItem = {
-	documentationFormat = { "markdown", "plaintext" },
+  documentationFormat = { "markdown", "plaintext" },
   snippetSupport = true,
   preselectSupport = true,
   insertReplaceSupport = true,
@@ -49,7 +48,7 @@ M.capabilities.textDocument.completion.completionItem = {
 }
 
 M.defaults = function()
-	local lua_lsp_settings = {
+  local lua_lsp_settings = {
     Lua = {
       runtime = { version = "LuaJIT" },
       workspace = {
@@ -62,17 +61,18 @@ M.defaults = function()
     },
   }
 
-	if vim.lsp.config then
-		vim.lsp.config("*", { capabilities = M.capabilities, on_init = M.on_init })
-		vim.lsp.config("lua_ls", { settings = lua_lsp_settings })
-  	vim.lsp.enable "lua_ls"
-	else
-		require("lspconfig").lua_ls.setup {
+  if vim.lsp.config then
+    vim.lsp.config("*", { capabilities = M.capabilities, on_init = M.on_init })
+    vim.lsp.config("lua_ls", { settings = lua_lsp_settings })
+    vim.lsp.enable "lua_ls"
+    vim.lsp.enable "clangd"
+  else
+    require("lspconfig").lua_ls.setup {
       capabilities = M.capabilities,
       on_init = M.on_init,
       settings = lua_lsp_settings,
     }
-	end
+  end
 end
 
 return M

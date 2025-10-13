@@ -1,6 +1,6 @@
 return {
-	--PATH = "prepend",
-	ui = {
+  --PATH = "prepend",
+  ui = {
     icons = {
       package_pending = " ",
       package_installed = " ",
