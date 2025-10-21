@@ -1,4 +1,4 @@
-return {
+local M = {
   --PATH = "prepend",
   ui = {
     icons = {
@@ -9,3 +9,5 @@ return {
   },
   max_concurrent_installers = 10,
 }
+
+return M

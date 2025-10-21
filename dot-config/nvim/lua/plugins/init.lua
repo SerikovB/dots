@@ -1,28 +1,33 @@
-return {
+local M = {
   -- Plenary plugin
   "nvim-lua/plenary.nvim",
 
-  -- Colors, theme, visuals
-  "rktjmp/lush.nvim",
+  -- Fkthemes
   {
-    "oncomouse/lushwal.nvim",
-    cmd = { "LushwalCompile" },
+    "flashcodes-themayankjha/fkthemes.nvim",
     dependencies = {
-      { "rktjmp/lush.nvim" },
-      { "rktjmp/shipwright.nvim" },
+      {
+        "folke/tokyonight.nvim",
+        config = function()
+          require("config.themes").tokyonight()
+        end,
+      },
+      {
+        "catppuccin/nvim",
+        name = "catppuccin",
+        priority = 1000,
+        config = function()
+          require("config.themes").catppuccin()
+        end,
+      },
+      { "ellisonleao/gruvbox.nvim", priority = 1000, config = true, opts = ... },
     },
     config = function()
-      require("config.lushwal").defaults()
-    end,
-    lazy = false,
-  },
-  {
-    "nvim-lualine/lualine.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      require("config.lualine").defaults()
+      require("config.themes").defaults()
     end,
   },
+
+  -- Which key
   {
     "folke/which-key.nvim",
     keys = { "<leader>", "<c-w>", '"', "'", "`", "c", "v", "g" },
@@ -31,15 +36,54 @@ return {
       return {}
     end,
   },
+
+  -- Gitsigns
   {
     "lewis6991/gitsigns.nvim",
     event = "User FilePost",
     opts = function()
-      return require "configs.gitsigns"
+      return require "config.gitsigns"
     end,
   },
 
-  -- LSP
+  -- Lualine
+  {
+    "nvim-lualine/lualine.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("config.lualine").defaults()
+    end,
+  },
+
+  -- BarBar
+  {
+    "romgrk/barbar.nvim",
+    dependencies = {
+      "lewis6991/gitsigns.nvim",
+      "nvim-tree/nvim-web-devicons",
+    },
+  },
+
+  -- LSP config
+  {
+    "neovim/nvim-lspconfig",
+    event = "BufReadPost",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+    },
+    config = function()
+      require("config.lspconfig").defaults()
+    end,
+  },
+
+  -- Lazy
+  {
+    "dgagn/diagflow.nvim",
+    event = "LspAttach",
+    opts = {},
+  },
+
+  -- Mason
   {
     "mason-org/mason.nvim",
     cmd = { "Mason", "MasonInstall", "MasonUpdate" },
@@ -47,11 +91,17 @@ return {
       return require "config.mason"
     end,
   },
+
+  -- Mason LSP config
   {
-    "neovim/nvim-lspconfig",
-    event = "BufReadPost",
+    "mason-org/mason-lspconfig.nvim",
+    opts = {},
+    dependencies = {
+      { "mason-org/mason.nvim", opts = {} },
+      "neovim/nvim-lspconfig",
+    },
     config = function()
-      require("config.lspconfig").defaults()
+      require("config.lspconfig").mason()
     end,
   },
 
@@ -66,7 +116,7 @@ return {
         opts = { history = true, updateevents = "TextChanged,TextChangedI" },
         config = function(_, opts)
           require("luasnip").config.set_config(opts)
-          require "config.luasnip"
+          require("config.luasnip").defaults()
         end,
       },
       {
@@ -90,7 +140,7 @@ return {
       },
     },
     opts = function()
-      return require "config.cmp"
+      return require "config.nvim-cmp"
     end,
   },
 
@@ -118,4 +168,15 @@ return {
       require("nvim-treesitter.configs").setup(opts)
     end,
   },
+
+  -- Telescope
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope-fzf-native.nvim",
+    },
+  },
 }
+
+return M

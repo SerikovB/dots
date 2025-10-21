@@ -1,19 +1,17 @@
 local M = {}
-local map = vim.keymap.set
+
+M.mason = function()
+  require("mason-lspconfig").setup {
+    automatic_enable = {
+      exclude = {
+        "lua_ls",
+      },
+    },
+  }
+end
 
 M.on_attach = function(_, bufnr)
-  local function opts(desc)
-    return { buffer = bufnr, desc = "LSP " .. desc }
-  end
-
-  map("n", "gD", vim.lsp.buf.declaration, opts "Go to declaration")
-  map("n", "gd", vim.lsp.buf.definition, opts "Go to definition")
-  map("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts "Add workspace folder")
-  map("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts "Remove workspace folder")
-  map("n", "<leader>wl", function()
-    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  end, opts "List workspace folders")
-  map("n", "<leader>D", vim.lsp.buf.type_definition, opts "Go to type definition")
+  require("mappings").lsp_config(bufnr)
 end
 
 M.on_init = function(client, _)
@@ -60,19 +58,9 @@ M.defaults = function()
       },
     },
   }
-
-  if vim.lsp.config then
-    vim.lsp.config("*", { capabilities = M.capabilities, on_init = M.on_init })
-    vim.lsp.config("lua_ls", { settings = lua_lsp_settings })
-    vim.lsp.enable "lua_ls"
-    vim.lsp.enable "clangd"
-  else
-    require("lspconfig").lua_ls.setup {
-      capabilities = M.capabilities,
-      on_init = M.on_init,
-      settings = lua_lsp_settings,
-    }
-  end
+  vim.lsp.config("*", { capabilities = M.capabilities, on_init = M.on_init, on_attach = M.on_attach })
+  vim.lsp.config("lua_ls", { settings = lua_lsp_settings })
+  vim.lsp.enable "lua_ls"
 end
 
 return M

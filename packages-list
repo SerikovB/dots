@@ -1,5 +1,6 @@
 -- From arch repo
 bluez
+brightnessctl
 fd
 fzf
 git
@@ -7,13 +8,14 @@ handlr-regex
 hyprland
 man-pages
 neovim
+playerctl
 ripgrep
 swww
 uwsm
+wl-clipboard
 zsh
 
 -- From AUR
 paru
 quickshell
-wallust
 wezterm-git

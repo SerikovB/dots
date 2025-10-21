@@ -1,4 +1,4 @@
-return {
+local M = {
   ensure_installed = { "lua", "luadoc", "printf", "vim", "vimdoc" },
 
   highlight = {
@@ -8,3 +8,5 @@ return {
 
   indent = { enable = true },
 }
+
+return M
