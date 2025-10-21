@@ -16,9 +16,10 @@ M.load = function()
       os.exit(1)
     end
   end
-  require("mappings").mapleader()
-
   vim.opt.rtp:prepend(lazypath)
+
+  require("mappings").mapleader()
+  require("config.diagnostic_signs").setup_signs()
   require("lazy").setup {
     spec = {
       { import = "plugins" },

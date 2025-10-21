@@ -28,7 +28,6 @@ M.defaults = function()
   o.relativenumber = true
   o.ruler = false
 
-  o.signcolumn = "auto:2"
   o.splitbelow = true
   o.splitright = true
   o.timeoutlen = 400

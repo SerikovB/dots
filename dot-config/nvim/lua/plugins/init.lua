@@ -64,6 +64,17 @@ local M = {
     },
   },
 
+  -- Statuscol
+  {
+    "luukvbaal/statuscol.nvim",
+    dependencies = {
+      "lewis6991/gitsigns.nvim",
+    },
+    config = function()
+      require("config.statuscol").defaults()
+    end,
+  },
+
   -- LSP config
   {
     "neovim/nvim-lspconfig",
