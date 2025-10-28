@@ -16,13 +16,14 @@ M.defaults = function()
         sign = {
           namespace = { "diagnostic" },
           maxwidth = 1,
+          auto = true,
         },
         click = "v:lua.ScSa",
       },
       {
         text = { builtin.lnumfunc, " " },
         condition = { true, builtin.not_empty },
-        click = "v:lua.ScSa",
+        click = "v:lua.ScLa",
       },
     },
   }

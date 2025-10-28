@@ -20,6 +20,9 @@ M.setup_signs = function()
     },
     severity_sort = true,
     underline = true,
+    float = {
+      border = "single",
+    },
   }
 end
 

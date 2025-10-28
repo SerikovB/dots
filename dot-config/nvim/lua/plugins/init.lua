@@ -62,6 +62,9 @@ local M = {
       "lewis6991/gitsigns.nvim",
       "nvim-tree/nvim-web-devicons",
     },
+    config = function()
+      require("config.barbar").defaults()
+    end,
   },
 
   -- Statuscol
@@ -127,6 +130,7 @@ local M = {
         opts = { history = true, updateevents = "TextChanged,TextChangedI" },
         config = function(_, opts)
           require("luasnip").config.set_config(opts)
+          ---@diagnostic disable-next-line: different-requires
           require("config.luasnip").defaults()
         end,
       },
@@ -187,6 +191,17 @@ local M = {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope-fzf-native.nvim",
     },
+    config = function()
+      require("config.telescope").defaults()
+    end,
+  },
+
+  -- Nvim-tree
+  {
+    "nvim-tree/nvim-tree.lua",
+    config = function()
+      require("config.ntree").defaults()
+    end,
   },
 }
 
